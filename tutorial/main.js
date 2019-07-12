@@ -17,6 +17,14 @@ var app = new Vue({
     isActive: true,
     textColor: "red",
     bgColor: "yellow",
+    item: {
+      id: 1,
+      src: "",
+      alt: '商品サムネイル',
+      width: 200,
+      height: 200,
+    },
+    radius: 50,
   },
   mounted: function () {
     this.scroll = 100
