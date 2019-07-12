@@ -8,7 +8,28 @@
   <body>
     <div id="app">
       <!-- この #app の内側にテンプレートを書き込んでいく -->
-      <button v-on:click="handleClick">Click</button>
+      名前：<input v-model="name" />
+      <div>
+        <button v-on:click="doAdd">モンスターを追加する</button>
+      </div>
+      <ul>
+        <li v-for="(item, index) in list" v-bind:key="item.id">
+          ID.{{ item.id }} {{ item.name }} HP.{{ item.hp }}
+          <button v-on:click="doRemove(index)">削除する</button>
+          <button v-if="item.hp > 0" v-on:click="doAttack(index)">
+            攻撃する
+          </button>
+        </li>
+      </ul>
+
+      <!-- <div v-if="ok">v-if条件による描画</div>
+      <div v-show="ok">v-show条件による描画</div> -->
+      <!-- <ul>
+        <li v-for="item in list" v-bind:key="item.id" v-if="item.hp < 300">
+          ID.{{ item.id }} {{ item.name }} HP.{{ item.hp }}
+        </li>
+      </ul> -->
+      <!-- <button v-on:click="handleClick">Click</button>
       <p>{{ message }}</p>
       <input v-bind:value="message" />
       <input v-model="message" />
@@ -16,30 +37,26 @@
       <div>
         <button v-on:click="show=!show">切り替え</button>
       </div>
-
       <transition>
         <p v-if="show">Hello horisaki!</p>
       </transition>
       <div v-bind:text-content.prop="message"></div>
       <div v-bind:scroll-top.prop="scroll">スクロール</div>
-
       <div>
         <div>{{ count }} 回クリックされたよ</div>
         <button v-on:click="increment">クリック</button>
       </div>
-
       <p v-bind:class="{ child: isChild, 'is-active': isActive }">
         あかん
       </p>
       <p v-bind:style="{ color: textColor, backgroundColor: bgColor }">
         わっしょい
       </p>
-
       <img v-bind="item" />
       <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
         <circle cx="100" cy="75" v-bind:r="radius" fill="lightpink" />
       </svg>
-      <input type="range" min="0" max="100" v-model="radius" />
+      <input type="range" min="0" max="100" v-model="radius" /> -->
       <pre>{{ $data }}</pre>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
