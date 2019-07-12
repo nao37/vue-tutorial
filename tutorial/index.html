@@ -10,14 +10,31 @@
       <!-- この #app の内側にテンプレートを書き込んでいく -->
       <button v-on:click="handleClick">Click</button>
       <p>{{ message }}</p>
+      <input v-bind:value="message" />
       <input v-model="message" />
       <p v-if="show">Hello Vue.js</p>
       <div>
         <button v-on:click="show=!show">切り替え</button>
       </div>
+
       <transition>
         <p v-if="show">Hello horisaki!</p>
       </transition>
+      <div v-bind:text-content.prop="message"></div>
+      <div v-bind:scroll-top.prop="scroll">スクロール</div>
+
+      <div>
+        <div>{{ count }} 回クリックされたよ</div>
+        <button v-on:click="increment">クリック</button>
+      </div>
+
+      <p v-bind:class="{ child: isChild, 'is-active': isActive }">
+        あかん
+      </p>
+      <p v-bind:style="{ color: textColor, backgroundColor: bgColor }">
+        わっしょい
+      </p>
+      <pre>{{ $data }}</pre>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
     <script src="main.js"></script>
