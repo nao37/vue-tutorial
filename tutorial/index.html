@@ -8,6 +8,16 @@
   <body>
     <div id="app">
       <!-- この #app の内側にテンプレートを書き込んでいく -->
+      <button v-on:click="handleClick">Click</button>
+      <p>{{ message }}</p>
+      <input v-model="message" />
+      <p v-if="show">Hello Vue.js</p>
+      <div>
+        <button v-on:click="show=!show">切り替え</button>
+      </div>
+      <transition>
+        <p v-if="show">Hello horisaki!</p>
+      </transition>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
     <script src="main.js"></script>
