@@ -33,13 +33,24 @@ var app = new Vue({
     },
   },
   watch: {
-    list: {
-      handler: function (newVal, oldVal) {
-        console.log('かわったよ')
-      },
-      deep: true,
-      immediate: true,
-    },
+    current: {
+      handler: function (val) {
+        axios.get('https://api.github.com/search/repositories', {
+          params: {
+            q: 'topic:' + val
+          }
+        }).then(function (response) {
+          this.list = response.data.items
+        }.bind(this))
+      }
+    }
+    // list: {
+    //   handler: function (newVal, oldVal) {
+    //     console.log('かわったよ')
+    //   },
+    //   deep: true,
+    //   immediate: true,
+    // },
   },
   computed: {
     // sorted: function () {
@@ -75,6 +86,18 @@ var app = new Vue({
     },
   },
   data: {
+    list: [],
+    current: '',
+    topics: [{
+        value: 'vue',
+        name: 'Vue.js'
+      },
+      {
+        value: 'jQuery',
+        name: 'jQuery'
+      },
+    ],
+
     // order: false,
     // budget: 3000,
     // limit: 20,
