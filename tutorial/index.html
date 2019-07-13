@@ -11,6 +11,14 @@
       <div v-on:click.right="handler">example</div>
       <div v-on:click.right.prevent="handler">example</div>
 
+      <p>{{ width }} の半分は {{ halfWidth }}</p>
+
+      <p>{{ halfPosition.x }}</p>
+      <p>{{ halfPosition.y }}</p>
+
+      <input v-model.number="width" />{{ width }}
+      <input v-model.number="halfWidth" />{{ halfWidth }}
+
       <!-- 名前：<input v-model="name" />
       <div>
         <button v-on:click="doAdd">モンスターを追加する</button>
