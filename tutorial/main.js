@@ -1,6 +1,9 @@
 var app = new Vue({
   el: '#app',
   methods: {
+    handler: function (event) {
+      console.log(event)
+    },
     handleClick: function (event) {
       alert(event.target)
     },
@@ -28,22 +31,24 @@ var app = new Vue({
   },
   data: {
     name: 'キマイラ',
-    list: [{
-        id: 1,
-        name: "スライム",
-        hp: 100,
-      },
-      {
-        id: 2,
-        name: "ゴブリン",
-        hp: 200
-      },
-      {
-        id: 3,
-        name: "ドラゴン",
-        hp: 300,
-      },
-    ]
+    list: [],
+
+    // list: [{
+    //     id: 1,
+    //     name: "スライム",
+    //     hp: 100,
+    //   },
+    //   {
+    //     id: 2,
+    //     name: "ゴブリン",
+    //     hp: 200
+    //   },
+    //   {
+    //     id: 3,
+    //     name: "ドラゴン",
+    //     hp: 300,
+    //   },
+    // ]
 
     // ok: false,
     // message: '初期メッセージ',
@@ -63,6 +68,13 @@ var app = new Vue({
     // },
     // radius: 50,
   },
+  // created: function () {
+  //   axios.get('list.json').then(function (response) {
+  //     this.list = response.data
+  //   }.bind(this)).catch(function (error) {
+  //     console.log(error)
+  //   })
+  // },
   mounted: function () {
     this.scroll = 100
   }
