@@ -28,8 +28,14 @@ var app = new Vue({
         this.list[index].hp -= 10
       }
     },
+    methodData: function () {
+      return Math.random()
+    },
   },
   computed: {
+    // sorted: function () {
+    //   return _.orderBy(this.matched, 'price', this.order ? 'desc' : 'asc')
+    // },
     halfWidth: {
       get: function () {
         return this.width / 2
@@ -46,14 +52,54 @@ var app = new Vue({
         x: this.halfWidth,
         y: this.halfHeight,
       }
-    }
+    },
+    computedData: function () {
+      return Math.random()
+    },
+    matched: function () {
+      return this.list.filter(function (el) {
+        return el.price <= this.budget
+      }, this)
+    },
+    limitted: function () {
+      return this.matched.slice(0, this.limit)
+    },
   },
   data: {
-    name: 'キマイラ',
-    list: [],
-    width: 800,
-    height: 600,
+    order: false,
+    budget: 3000,
+    limit: 20,
+    list: [{
+        id: 1,
+        name: "りんご",
+        price: 100
+      },
+      {
+        id: 2,
+        name: "ばなな",
+        price: 200
+      },
+      {
+        id: 3,
+        name: "いちご",
+        price: 500
+      },
+      {
+        id: 4,
+        name: "おれんじ",
+        price: 400
+      },
+      {
+        id: 5,
+        name: "めろん",
+        price: 500
+      },
+    ],
 
+    // name: 'キマイラ',
+    // list: [],
+    // width: 800,
+    // height: 600,
     // list: [{
     //     id: 1,
     //     name: "スライム",
@@ -70,7 +116,6 @@ var app = new Vue({
     //     hp: 300,
     //   },
     // ]
-
     // ok: false,
     // message: '初期メッセージ',
     // show: true,
@@ -96,7 +141,7 @@ var app = new Vue({
   //     console.log(error)
   //   })
   // },
-  mounted: function () {
-    this.scroll = 100
-  }
+  // mounted: function () {
+  // this.scroll = 100
+  // }
 })

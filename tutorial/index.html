@@ -8,17 +8,26 @@
   <body>
     <div id="app">
       <!-- この #app の内側にテンプレートを書き込んでいく -->
-      <div v-on:click.right="handler">example</div>
+      <input v-model.number="budget" /> 円以下にしぼりこむ<br />
+      <input v-model.number="limit" /> 件を表示<br />
+      <p>{{ matched.length }} 件中 {{ limitted.length }} 件を表示</p>
+      <ul>
+        <li v-for="item in limitted" v-bind:key="item.id">
+          {{ item.name }} {{ item.price }}円
+        </li>
+      </ul>
+
+      <!-- <div v-on:click.right="handler">example</div>
       <div v-on:click.right.prevent="handler">example</div>
-
       <p>{{ width }} の半分は {{ halfWidth }}</p>
-
       <p>{{ halfPosition.x }}</p>
       <p>{{ halfPosition.y }}</p>
-
       <input v-model.number="width" />{{ width }}
       <input v-model.number="halfWidth" />{{ halfWidth }}
-
+      <div>{{ computedData }}</div>
+      <div>{{ computedData }}</div>
+      <div>{{ methodData() }}</div>
+      <div>{{ methodData() }}</div> -->
       <!-- 名前：<input v-model="name" />
       <div>
         <button v-on:click="doAdd">モンスターを追加する</button>
