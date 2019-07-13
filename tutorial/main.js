@@ -43,7 +43,16 @@ var app = new Vue({
           this.list = response.data.items
         }.bind(this))
       }
-    }
+    },
+    list: {
+      handler: function () {
+        console.log('通常：' + this.$refs.list.offsetHeight)
+
+        this.$nextTick(function () {
+          console.log('nextTick：' + this.$refs.list.offsetHeight)
+        })
+      },
+    },
     // list: {
     //   handler: function (newVal, oldVal) {
     //     console.log('かわったよ')
@@ -85,19 +94,25 @@ var app = new Vue({
       return this.matched.slice(0, this.limit)
     },
   },
+  filters: {
+    localeNum: function (val) {
+      return val.toLocaleString()
+    }
+  },
   data: {
     list: [],
-    current: '',
-    topics: [{
-        value: 'vue',
-        name: 'Vue.js'
-      },
-      {
-        value: 'jQuery',
-        name: 'jQuery'
-      },
-    ],
-
+    price: 19800,
+    // list: [],
+    // current: '',
+    // topics: [{
+    //     value: 'vue',
+    //     name: 'Vue.js'
+    //   },
+    //   {
+    //     value: 'jQuery',
+    //     name: 'jQuery'
+    //   },
+    // ],
     // order: false,
     // budget: 3000,
     // limit: 20,

@@ -8,15 +8,23 @@
   <body>
     <div id="app">
       <!-- この #app の内側にテンプレートを書き込んでいく -->
-      <select v-model="current">
+
+      <button v-on:click="list.push(list.length+1)">追加する</button>
+      <ul ref="list">
+        <li v-for="item in list">
+          {{ item }}
+        </li>
+      </ul>
+
+      <!-- {{ price | localeNum }} 円 -->
+      <!-- <select v-model="current">
         <option v-for="topic in topics" v-bind:value="topic.value">
           {{ topic.name }}
         </option>
       </select>
       <div v-for="item in list">
         {{ item.full_name }}
-      </div>
-
+      </div> -->
       <!-- <input v-model.number="budget" /> 円以下にしぼりこむ<br />
       <input v-model.number="limit" /> 件を表示<br />
       <p>{{ matched.length }} 件中 {{ limitted.length }} 件を表示</p>
