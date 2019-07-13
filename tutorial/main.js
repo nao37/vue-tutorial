@@ -32,6 +32,15 @@ var app = new Vue({
       return Math.random()
     },
   },
+  watch: {
+    list: {
+      handler: function (newVal, oldVal) {
+        console.log('かわったよ')
+      },
+      deep: true,
+      immediate: true,
+    },
+  },
   computed: {
     // sorted: function () {
     //   return _.orderBy(this.matched, 'price', this.order ? 'desc' : 'asc')
@@ -66,36 +75,35 @@ var app = new Vue({
     },
   },
   data: {
-    order: false,
-    budget: 3000,
-    limit: 20,
-    list: [{
-        id: 1,
-        name: "りんご",
-        price: 100
-      },
-      {
-        id: 2,
-        name: "ばなな",
-        price: 200
-      },
-      {
-        id: 3,
-        name: "いちご",
-        price: 500
-      },
-      {
-        id: 4,
-        name: "おれんじ",
-        price: 400
-      },
-      {
-        id: 5,
-        name: "めろん",
-        price: 500
-      },
-    ],
-
+    // order: false,
+    // budget: 3000,
+    // limit: 20,
+    // list: [{
+    //     id: 1,
+    //     name: "りんご",
+    //     price: 100
+    //   },
+    //   {
+    //     id: 2,
+    //     name: "ばなな",
+    //     price: 200
+    //   },
+    //   {
+    //     id: 3,
+    //     name: "いちご",
+    //     price: 500
+    //   },
+    //   {
+    //     id: 4,
+    //     name: "おれんじ",
+    //     price: 400
+    //   },
+    //   {
+    //     id: 5,
+    //     name: "めろん",
+    //     price: 500
+    //   },
+    // ],
     // name: 'キマイラ',
     // list: [],
     // width: 800,
