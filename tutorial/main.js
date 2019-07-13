@@ -1,5 +1,31 @@
+Vue.component('my-component', {
+  template: '<p><comp-child></comp-child></p>',
+  data: function () {
+    return {
+      message: 'Hello Vue.js',
+    }
+  },
+
+  // template: '<p>{{message}}</p>',
+  // data: function () {
+  //   return {
+  //     message: 'Hello Vue.js'
+  //   }
+  // },
+})
+
+Vue.component('comp-child', {
+  template: '<p>{{val}}</p>',
+  props: ['val']
+  // template: '<p>{{val}}</p>',
+  // props: ['val'],
+})
+
 var app = new Vue({
   el: '#app',
+  components: {
+
+  },
   methods: {
     handler: function (event) {
       console.log(event)
