@@ -29,7 +29,8 @@
     </div>
     <div id="app">
       <!-- この #app の内側にテンプレートを書き込んでいく -->
-
+      <input v-model="text" placeholder="edit me" />
+      <p>Message is: {{ text }}</p>
       <!-- <my-component v-for="item in items" v-bind:key="item.id"></my-component> -->
 
       <!-- <app-nav></app-nav>
