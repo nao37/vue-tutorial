@@ -40,9 +40,10 @@ new Vue({
     addNewTodo: function () {
       this.todos.push({
         id: this.nextTodoId++,
-        title: this.newTodoText,
+        title: this.newTodoText
       })
-    },
+      this.newTodoText = ''
+    }
   }
 })
 
