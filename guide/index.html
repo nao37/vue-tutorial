@@ -8,13 +8,25 @@
   <body>
     <div id="app">
       <!-- この #app の内側にテンプレートを書き込んでいく -->
-      {{ message }}
+
+      <app-nav></app-nav>
+      <app-view>
+        <app-sidebar></app-sidebar>
+        <app-content></app-content>
+      </app-view>
     </div>
     <div id="app2">
       <span v-bind:title="message">
         Hover your mouse over me for a few seconds to see my dynamically bound
         title!
       </span>
+      <ol>
+        <todo-item
+          v-for="item in groceryList"
+          v-bind:todo="item"
+          v-bind:key="item.id"
+        ></todo-item>
+      </ol>
     </div>
     <script src="vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.5/lodash.min.js"></script>
