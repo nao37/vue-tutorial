@@ -6,8 +6,30 @@
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
+    <div id="app">
+      <!-- この #app の内側にテンプレートを書き込んでいく -->
+      <blog-post
+        v-for="title in titles"
+        v-bind:key="title.id"
+        v-bind:title="title.title"
+      ></blog-post>
+
+      <button-counter></button-counter>
+      <button-counter></button-counter>
+      <button-counter></button-counter>
+
+      <!-- <input v-model="text" placeholder="edit me" />
+      <p>Message is: {{ text }}</p> -->
+      <!-- <my-component v-for="item in items" v-bind:key="item.id"></my-component> -->
+
+      <!-- <app-nav></app-nav>
+      <app-view>
+        <app-sidebar></app-sidebar>
+        <app-content></app-content>
+      </app-view> -->
+    </div>
     <div id="todo-list-example">
-      <form v-on:submit.prevent="addNewTodo">
+      <!-- <form v-on:submit.prevent="addNewTodo">
         <label for="new-todo">Add a todo.</label>
         <input
           v-model="newTodoText"
@@ -25,19 +47,7 @@
           v-on:remove="todos.splice(index, 1)"
         ></li>
       </ul>
-      <pre>{{ $data }}</pre>
-    </div>
-    <div id="app">
-      <!-- この #app の内側にテンプレートを書き込んでいく -->
-      <input v-model="text" placeholder="edit me" />
-      <p>Message is: {{ text }}</p>
-      <!-- <my-component v-for="item in items" v-bind:key="item.id"></my-component> -->
-
-      <!-- <app-nav></app-nav>
-      <app-view>
-        <app-sidebar></app-sidebar>
-        <app-content></app-content>
-      </app-view> -->
+      <pre>{{ $data }}</pre> -->
     </div>
     <div id="app2">
       <span v-bind:title="message">
