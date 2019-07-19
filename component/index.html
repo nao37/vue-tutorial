@@ -7,11 +7,15 @@
   </head>
   <body>
     <div id="app">
-      <blog-post v-bind:book="book"></blog-post>
+      <ul>
+        <comp-child
+          v-for="item in items"
+          v-bind:key="item.id"
+          v-bind="item"
+          v-on:attack="handleAttack"
+        ></comp-child>
+      </ul>
     </div>
-    <navigation-link url="/profile">
-      Your Profile
-    </navigation-link>
 
     <script src="vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.5/lodash.min.js"></script>
