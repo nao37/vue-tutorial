@@ -3,6 +3,12 @@ Vue.component('blog-post', {
   template: "<p>{{ book.title + ' and ' + book.author }}</p>"
 })
 
+Vue.component('comp-child', {
+  props: [],
+  data: {},
+  template: '',
+})
+
 var app = new Vue({
   el: "#app",
   data: {
