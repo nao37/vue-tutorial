@@ -144,3 +144,17 @@ var app3 = new Vue({
     ]
   }
 });
+
+Vue.component("alert-box", {
+  template: `
+    <div class="demo-alert-box">
+      <strong>Error!</strong>
+      <slot></slot>
+    </div>
+  `
+});
+
+var app4 = new Vue({
+  el: "#slot-demo",
+  data: {}
+});

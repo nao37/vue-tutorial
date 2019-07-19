@@ -6,8 +6,14 @@
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
+    <div id="slot-demo">
+      <alert-box>
+        Something bad happened.
+      </alert-box>
+    </div>
+
     <div id="blog-post-event-demo">
-      <div v-bind:style="{fontSize: postFontSize + 'em'}">
+      <!-- <div v-bind:style="{fontSize: postFontSize + 'em'}">
         <blog-post
           v-for="post in posts"
           v-bind:key="post.id"
@@ -15,7 +21,7 @@
           v-on:enlarge-text="postFontSize += 0.1"
         ></blog-post>
       </div>
-      <custom-input v-model="searchText"></custom-input>
+      <custom-input v-model="searchText"></custom-input> -->
     </div>
 
     <div id="app">
@@ -62,10 +68,10 @@
       <pre>{{ $data }}</pre> -->
     </div>
     <div id="app2">
-      <span v-bind:title="message">
+      <!-- <span v-bind:title="message">
         Hover your mouse over me for a few seconds to see my dynamically bound
         title!
-      </span>
+      </span> -->
       <!-- <ol>
         <todo-item
           v-for="item in groceryList"
