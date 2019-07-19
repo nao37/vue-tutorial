@@ -6,9 +6,21 @@
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
+    <div id="blog-post-event-demo">
+      <div v-bind:style="{fontSize: postFontSize + 'em'}">
+        <blog-post
+          v-for="post in posts"
+          v-bind:key="post.id"
+          v-bind:post="post"
+          v-on:enlarge-text="postFontSize += 0.1"
+        ></blog-post>
+      </div>
+      <custom-input v-model="searchText"></custom-input>
+    </div>
+
     <div id="app">
       <!-- この #app の内側にテンプレートを書き込んでいく -->
-      <blog-post
+      <!-- <blog-post
         v-for="title in titles"
         v-bind:key="title.id"
         v-bind:title="title.title"
@@ -16,7 +28,7 @@
 
       <button-counter></button-counter>
       <button-counter></button-counter>
-      <button-counter></button-counter>
+      <button-counter></button-counter> -->
 
       <!-- <input v-model="text" placeholder="edit me" />
       <p>Message is: {{ text }}</p> -->
